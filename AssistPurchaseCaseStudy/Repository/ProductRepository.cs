@@ -51,7 +51,6 @@ namespace AssistPurchaseCaseStudy.Repository
 
             return productBasedOnQuestionList;
         }
-
         public bool IsProductSatisfy(Products product, Dictionary<string, string[]> choiceDictionary)
         {
             if (IsFeatureSatisfy(product, choiceDictionary))
@@ -60,7 +59,6 @@ namespace AssistPurchaseCaseStudy.Repository
             }
             return false;
         }
-
         public bool IsFeatureSatisfy(Products product, Dictionary<string, string[]> choiceDictionary)
         {
 
@@ -70,7 +68,6 @@ namespace AssistPurchaseCaseStudy.Repository
             }
             return false;
         }
-
         public bool IsServicesSatisfy(Products product, Dictionary<string, string[]> choiceDictionary)
         {
             if (product.Services.Intersect(choiceDictionary["Services"]).Count() != 0 && IsSizeSatisfy(product, choiceDictionary))
@@ -88,6 +85,7 @@ namespace AssistPurchaseCaseStudy.Repository
             }
             return false;
         }
+
 
         public Products GetSpecificProduct(string ProductId)
         {

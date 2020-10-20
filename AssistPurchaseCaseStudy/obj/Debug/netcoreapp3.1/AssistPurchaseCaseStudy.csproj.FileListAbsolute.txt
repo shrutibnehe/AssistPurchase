@@ -18,3 +18,23 @@ C:\Users\320107932\OneDrive - Philips\CaseStudy2\assist-purchase-s21b10\AssistPu
 C:\Users\320107932\OneDrive - Philips\CaseStudy2\assist-purchase-s21b10\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.dll
 C:\Users\320107932\OneDrive - Philips\CaseStudy2\assist-purchase-s21b10\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.pdb
 C:\Users\320107932\OneDrive - Philips\CaseStudy2\assist-purchase-s21b10\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.genruntimeconfig.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.exe
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.deps.json
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.runtimeconfig.json
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.runtimeconfig.dev.json
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.dll
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\bin\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.pdb
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.csprojAssemblyReference.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.AssemblyInfoInputs.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.AssemblyInfo.cs
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.csproj.CoreCompileInputs.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.RazorTargetAssemblyInfo.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchaseCaseStudy.StaticWebAssets.Manifest.cache
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\staticwebassets\AssistPurchaseCaseStudy.StaticWebAssets.xml
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.dll
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.pdb
+C:\Users\Dell1\source\repos\AssistPurchase\AssistPurchaseCaseStudy\obj\Debug\netcoreapp3.1\AssistPurchaseCaseStudy.genruntimeconfig.cache

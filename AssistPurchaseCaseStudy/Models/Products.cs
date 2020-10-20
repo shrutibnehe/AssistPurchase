@@ -25,6 +25,16 @@ namespace AssistPurchaseCaseStudy.Models
             this.OtherInfo = default(List<string>);
         }
 
+        public Products(string id)
+        {
+            this.ID = id;
+            this.Name = default(string);
+            this.Features = default(string[]);
+            this.Services = default(string[]);
+            this.DisplaySize = default(string);
+            this.OtherInfo = default(List<string>);
+        }
+
         public Products()
         {
             this.ID = default(string);

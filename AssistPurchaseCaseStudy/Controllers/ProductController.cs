@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AssistPurchaseCaseStudy.Repository;
 using AssistPurchaseCaseStudy.Models;
+using AssistPurchaseCaseStudy.Utility;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,73 +22,29 @@ namespace AssistPurchaseCaseStudy.Controllers
             this._repository = repository;
         }
 
-
-        #region Sample
-        // GET: api/<ProductController>
-        [HttpGet]
-        public IEnumerable<Products> Get()
-        {
-            return this._repository.GetAllProducts();
-        }
-
-        // GET api/<ProductController>/5
-        [HttpGet("{id}")]
-        public Products Get(string id)
-        {
-            Models.Products pro_obj = default(Models.Products);
-            foreach (Models.Products prod in _repository.GetAllProducts())
-            {
-                if (prod.ID == id)
-                {
-                    pro_obj = prod;
-                    break;
-                }
-            }
-            return pro_obj;
-        }
-
-        // POST api/<ProductController>
-        [HttpPost]
-        public Products Post([FromBody] Models.Products newProduct)
-        {
-            Products new_obj = newProduct;
-            //Console.WriteLine();
-            this._repository.AddNewProduct(new_obj);
-            return newProduct;
-        }
-
-        // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProductController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-
-        }
-
-        #endregion
-
-
+        //POST: api/<ProductController>/questions
         [HttpPost("questions")]
         public RequestResponse GetNextQuestion([FromBody] RequestResponse recievedResponse)
         {
-            var sendResponse = new RequestResponse();
-            var suggestionPathObj = new SuggestionPaths();
-            sendResponse.Layer = suggestionPathObj.NextLayer(recievedResponse.Layer);
-            sendResponse.LayerMembers = suggestionPathObj.NextLayerMembers(recievedResponse.LayerMembers);
-
-            sendResponse.ChoiceDictionary = recievedResponse.ChoiceDictionary;
-            sendResponse.ChoiceDictionary.Add(recievedResponse.Layer, recievedResponse.LayerMembers);
+            var sendResponse = new RequestResponse(new Dictionary<string, string[]> { }, new string[] { }, "");
+            var requestvalidator = new Utility.RequestResponseValidation();
+            if(requestvalidator.IsRequestResponseCorrect(recievedResponse))
+            {
+                var suggestionPathObj = new SuggestionPaths();
+                sendResponse.Layer = suggestionPathObj.NextLayer(recievedResponse.Layer);
+                sendResponse.LayerMembers = suggestionPathObj.NextLayerMembers(recievedResponse.LayerMembers);
+                sendResponse.ChoiceDictionary = recievedResponse.ChoiceDictionary;
+                sendResponse.ChoiceDictionary.Add(recievedResponse.Layer, recievedResponse.LayerMembers);
+            }
+            else
+            {
+                sendResponse.Layer = "Invalid RequestResponse Sent";
+            }
 
             return sendResponse;
         }
 
-        //GET: api/<ProductController>/question
-
+        //GET: api/<ProductController>/questions
         [HttpGet("questions")]
         public RequestResponse GetSampleRequestResponse()
         {
@@ -95,13 +52,19 @@ namespace AssistPurchaseCaseStudy.Controllers
             return sendResponse;
         }
 
-        //GET: api/<ProductController>/question/showproducts
-
+        //GET: api/<ProductController>/questions/showproducts
         [HttpGet("questions/showproducts")]
         public IEnumerable<Products> Get([FromBody] RequestResponse recievedResponse)
         {
-            return this._repository.GetAllProductsBasedOnQuestions(recievedResponse.ChoiceDictionary);
-
+            var requestvalidator = new Utility.RequestResponseValidation();
+            if (requestvalidator.IsGetProductRequestCorrect(recievedResponse))
+            {
+                return this._repository.GetAllProductsBasedOnQuestions(recievedResponse.ChoiceDictionary);
+            }
+            else
+            {
+                return new List<Products>() { new Products("Invalid GetProductRequest")};
+            }
         }
     }
 }

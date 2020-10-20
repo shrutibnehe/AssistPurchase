@@ -13,12 +13,11 @@ namespace AssistPurchaseCaseStudy.Models
 
         public RequestResponse()
         {
-
             this.ChoiceDictionary = new Dictionary<string, string[]>();
-            this.LayerMembers = new string[] { "default1", "default2" };
-            this.Layer = "default";
-            this.ChoiceDictionary.Add("key1", this.LayerMembers);
-            this.ChoiceDictionary.Add("key2", this.LayerMembers);
+            this.LayerMembers = new string[] { "LayerMem1", "LayerMem2" };
+            this.Layer = "Layer3";
+            this.ChoiceDictionary.Add("Layer1", this.LayerMembers);
+            this.ChoiceDictionary.Add("Layer2", this.LayerMembers);
         }
 
         public RequestResponse(Dictionary<string, string[]> choices, string[] layerMembers, string nextLayer)
