@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AssistPurchaseCaseStudy.Models;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace AssistPurchaseCaseStudy.Repository
 {
@@ -23,7 +21,7 @@ namespace AssistPurchaseCaseStudy.Repository
                 });
             }
 
-            public void add(AlertDataModel dataModel)
+            public void Add(AlertDataModel dataModel)
             {
                 _alertsdb.Add(dataModel);
             }
@@ -35,11 +33,12 @@ namespace AssistPurchaseCaseStudy.Repository
             public IEnumerable<AlertDataModel> GetRegionSpecificCustomers(string region)
             {
                 List<AlertDataModel> dataModels = new List<AlertDataModel>();
-                for (int i = 0; i < _alertsdb.Count; i++)
+              
+                foreach(AlertDataModel customer in _alertsdb)
                 {
-                    if (_alertsdb[i].CustomerRegion == region)
+                if (customer.CustomerRegion == region)
                     {
-                        dataModels.Add(_alertsdb[i]);
+                           dataModels.Add(customer);
                     }
                 }
                 return dataModels;

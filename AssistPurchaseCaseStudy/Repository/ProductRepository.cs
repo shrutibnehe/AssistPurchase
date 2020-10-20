@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AssistPurchaseCaseStudy.Models;
-using System.Threading.Tasks;
+
 
 namespace AssistPurchaseCaseStudy.Repository
 {
@@ -51,6 +51,7 @@ namespace AssistPurchaseCaseStudy.Repository
 
             return productBasedOnQuestionList;
         }
+
         public bool IsProductSatisfy(Products product, Dictionary<string, string[]> choiceDictionary)
         {
             if (IsFeatureSatisfy(product, choiceDictionary))
@@ -59,6 +60,7 @@ namespace AssistPurchaseCaseStudy.Repository
             }
             return false;
         }
+
         public bool IsFeatureSatisfy(Products product, Dictionary<string, string[]> choiceDictionary)
         {
 
@@ -68,6 +70,7 @@ namespace AssistPurchaseCaseStudy.Repository
             }
             return false;
         }
+
         public bool IsServicesSatisfy(Products product, Dictionary<string, string[]> choiceDictionary)
         {
             if (product.Services.Intersect(choiceDictionary["Services"]).Count() != 0 && IsSizeSatisfy(product, choiceDictionary))
@@ -86,11 +89,10 @@ namespace AssistPurchaseCaseStudy.Repository
             return false;
         }
 
-
-        public Products GetSpecificProduct(string ProductId)
+        public Products GetSpecificProduct(string productId)
         {
             foreach (Products item in productList)
-                if (item.ID == ProductId)
+                if (item.ID == productId)
                     return item;
 
             return null;
@@ -98,12 +100,12 @@ namespace AssistPurchaseCaseStudy.Repository
 
         }
       
-        public bool RemoveProduct(string ProductId)
+        public bool RemoveProduct(string productId)
         {
             bool flag = false;
             for (int i = 0; i < productList.Count; i++)
             {
-                if (productList[i].ID == ProductId)
+                if (productList[i].ID == productId)
                 {
                     productList.Remove(productList[i]);
                     flag = true;
@@ -128,7 +130,7 @@ namespace AssistPurchaseCaseStudy.Repository
             }
             return flag;
         }
-        public bool check(string productid, Products product)
+        public bool Check(string productid, Products product)
         {
             if (product.Equals(null) || product.ID != productid)
             {
@@ -137,7 +139,7 @@ namespace AssistPurchaseCaseStudy.Repository
             return true;
         }
 
-        public bool checkProductId(string productId)
+        public bool CheckProductId(string productId)
         {
             bool flag = false;
             for (int i = 0; i < productList.Count; i++)

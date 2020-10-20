@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AssistPurchaseCaseStudy.Models;
+﻿using AssistPurchaseCaseStudy.Models;
 
 
 namespace AssistPurchaseCaseStudy.Repository

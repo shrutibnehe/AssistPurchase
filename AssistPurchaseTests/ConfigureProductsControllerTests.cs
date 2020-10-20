@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using AssistPurchaseCaseStudy.Models;
 using AssistPurchaseCaseStudy.Controllers;
@@ -14,8 +13,8 @@ namespace AssistPurchaseTests
         public ConfigureProductsControllerTests()
 
         {
-            IProductRepository _productDataBaseRepository = new ProductRepository();
-            _productsController = new ConfigureProductsController(_productDataBaseRepository);
+            IProductRepository productDataBaseRepository = new ProductRepository();
+            _productsController = new ConfigureProductsController(productDataBaseRepository);
         }
 
         [Fact]
@@ -40,8 +39,8 @@ namespace AssistPurchaseTests
         public void TestPostWithEmptyData()
         {
             Products product = new Products() { };
-            var CodeReceived = _productsController.Post(product);
-            Assert.Equal(HttpStatusCode.BadRequest, CodeReceived);
+            var codeReceived = _productsController.Post(product);
+            Assert.Equal(HttpStatusCode.BadRequest, codeReceived);
         }
         [Fact]
         public void TestPostWithEmptyProductIdData()
@@ -52,22 +51,22 @@ namespace AssistPurchaseTests
                 Services=new string[] {"Alarm"}
             };
            
-            var CodeReceived = _productsController.Post(product);
-            Assert.Equal(HttpStatusCode.BadRequest, CodeReceived);
+            var codeReceived = _productsController.Post(product);
+            Assert.Equal(HttpStatusCode.BadRequest, codeReceived);
         }
         [Fact]
         public void TestDeleteWithValidProductId()
         {
 
-            var CodeReceived = _productsController.Delete("P109");
-            Assert.Equal(HttpStatusCode.OK, CodeReceived);
+            var codeReceived = _productsController.Delete("P109");
+            Assert.Equal(HttpStatusCode.OK, codeReceived);
         }
         [Fact]
         public void TestDeleteWithInValidProductId()
         {
 
-            var CodeReceived = _productsController.Delete("PX12011");
-            Assert.Equal(HttpStatusCode.NotFound, CodeReceived);
+            var codeReceived = _productsController.Delete("PX12011");
+            Assert.Equal(HttpStatusCode.NotFound, codeReceived);
         }
         [Fact]
         public void TestPutWithValidData()
@@ -80,8 +79,8 @@ namespace AssistPurchaseTests
                 
             };
 
-            var CodeReceived = _productsController.Put("P104", product);
-            Assert.Equal(HttpStatusCode.OK, CodeReceived);
+            var codeReceived = _productsController.Put("P104", product);
+            Assert.Equal(HttpStatusCode.OK, codeReceived);
         }
         [Fact]
         public void TestPutWithInValidProductId()
@@ -93,8 +92,8 @@ namespace AssistPurchaseTests
                 DisplaySize = "10"
             };
 
-            var CodeReceived = _productsController.Put("P12090", product);
-            Assert.Equal(HttpStatusCode.NotFound, CodeReceived);
+            var codeReceived = _productsController.Put("P12090", product);
+            Assert.Equal(HttpStatusCode.NotFound, codeReceived);
         }
         [Fact]
         public void TestPutWithMismatchData()
@@ -107,8 +106,8 @@ namespace AssistPurchaseTests
                 DisplaySize = "10"
             };
 
-            var CodeReceived = _productsController.Put("P120790", product);//id not equal 
-            Assert.Equal(HttpStatusCode.BadRequest, CodeReceived);
+            var codeReceived = _productsController.Put("P120790", product);//id not equal 
+            Assert.Equal(HttpStatusCode.BadRequest, codeReceived);
         }
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AssistPurchaseCaseStudy.Utility;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssistPurchaseCaseStudy.Controllers
@@ -13,7 +9,7 @@ namespace AssistPurchaseCaseStudy.Controllers
     [ApiController]
     public class AlertController : ControllerBase
     {
-        Repository.IAlertRepository _alertDataBaseRepository;
+         Repository.IAlertRepository _alertDataBaseRepository;
 
         public AlertController(Repository.IAlertRepository repository)
         {
@@ -32,13 +28,13 @@ namespace AssistPurchaseCaseStudy.Controllers
         {
             Validation validations = new Validation();
             bool response = validations.CheckValidity(dataModel);
-            if (dataModel == null || response == false)
+            if (response == false)
             {
                 return BadRequest("Please Enter Valid Details");
             }
             else
             {
-                this._alertDataBaseRepository.add(dataModel);
+                this._alertDataBaseRepository.Add(dataModel);
                 string message = "Order with ProductId " + dataModel.ProductIdConfirmed + " has been Confirmed";
                 return Ok(message);
             }
