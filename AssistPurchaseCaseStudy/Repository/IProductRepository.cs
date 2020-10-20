@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AssistPurchaseCaseStudy.Models;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AssistPurchaseCaseStudy.Repository
 {
@@ -14,12 +11,12 @@ namespace AssistPurchaseCaseStudy.Repository
         public IEnumerable<Products> GetAllProductsBasedOnQuestions(Dictionary<string, string[]> choiceDictionary);
 
       //  IEnumerable<ProductDataModel> GetAllProducts();
-        Products GetSpecificProduct(string ProductId);
+        Products GetSpecificProduct(string productId);
         //void AddProduct(Products product);
-        bool RemoveProduct(string ProductId);
-        bool UpdateProduct(string ProductId, Products product);
-        bool check(string productid, Products product);
-       // public bool checkProductId(string productId);
+        bool RemoveProduct(string productId);
+        bool UpdateProduct(string productId, Products product);
+        bool Check(string productid, Products product);
+      
 
     }
 }

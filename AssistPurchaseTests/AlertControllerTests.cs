@@ -2,9 +2,6 @@
 using AssistPurchaseCaseStudy.Repository;
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using AssistPurchaseCaseStudy.Models;
 
 namespace AssistPurchaseTests
@@ -43,6 +40,7 @@ namespace AssistPurchaseTests
             Assert.IsType<BadRequestObjectResult>(codereceived);
 
         }
+       
         [Fact]
         public void TestPostWithNoCustomerName()
         {

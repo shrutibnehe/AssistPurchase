@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using AssistPurchaseCaseStudy.Repository;
 using AssistPurchaseCaseStudy.Models;
 
 
@@ -34,40 +30,29 @@ namespace AssistPurchaseCaseStudy.Controllers
         [HttpGet("{id}")]
         public Products Get(string id)
         {
-            Models.Products pro_obj = default(Models.Products);
+            Models.Products proObj = default(Models.Products);
             foreach (Models.Products prod in _repository.GetAllProducts())
             {
                 if (prod.ID == id)
                 {
-                    pro_obj = prod;
+                    proObj = prod;
                     break;
                 }
             }
-            return pro_obj;
+            return proObj;
         }
 
         // POST api/<ProductController>
         [HttpPost]
         public Products Post([FromBody] Models.Products newProduct)
         {
-            Products new_obj = newProduct;
+            Products newObj = newProduct;
             //Console.WriteLine();
-            this._repository.AddNewProduct(new_obj);
+            this._repository.AddNewProduct(newObj);
             return newProduct;
         }
 
-        // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProductController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-
-        }
+        
 
         #endregion
 

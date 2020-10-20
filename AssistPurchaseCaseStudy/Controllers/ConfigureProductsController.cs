@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssistPurchaseCaseStudy.Controllers
@@ -28,25 +24,25 @@ namespace AssistPurchaseCaseStudy.Controllers
             return this._productDataBaseRepository.GetAllProducts();
 
         }
-        [HttpGet("{ProductId}")]
-        public ActionResult GetSpecificProductByProductId(string ProductId)
+        [HttpGet("{productId}")]
+        public ActionResult GetSpecificProductByProductId(string productId)
         {
             //return this._productDataBaseRepository.GetAllProducts();
-            if (this._productDataBaseRepository.GetSpecificProduct(ProductId) == null)
+            if (this._productDataBaseRepository.GetSpecificProduct(productId) == null)
             {
                 return NotFound();
 
             }
             else
             {
-                return Ok(this._productDataBaseRepository.GetSpecificProduct(ProductId));
+                return Ok(this._productDataBaseRepository.GetSpecificProduct(productId));
             }
 
         }
         [HttpPost("AddProduct")]
         public HttpStatusCode Post([FromBody] Models.Products product)
         {
-            if (product.Equals(null) || String.IsNullOrEmpty(product.ID))
+            if (String.IsNullOrEmpty(product.ID))
             {
                 return HttpStatusCode.BadRequest;
             }
@@ -63,11 +59,11 @@ namespace AssistPurchaseCaseStudy.Controllers
 
         // DELETE api/values/5
         //  [HttpDelete("{id}")]
-        [HttpDelete("RemoveProduct/{ProductId}")]
-        public HttpStatusCode Delete(string ProductId)
+        [HttpDelete("RemoveProduct/{productId}")]
+        public HttpStatusCode Delete(string productId)
         {
 
-            bool flag = this._productDataBaseRepository.RemoveProduct(ProductId);
+            bool flag = this._productDataBaseRepository.RemoveProduct(productId);
             if (flag == false)
             {
                 return HttpStatusCode.NotFound;
@@ -80,12 +76,12 @@ namespace AssistPurchaseCaseStudy.Controllers
 
             }
         }
-        [HttpPut("UpdateProduct/{ProductId}")]
-        public HttpStatusCode Put(string ProductId, Models.Products product)
+        [HttpPut("UpdateProduct/{productId}")]
+        public HttpStatusCode Put(string productId, Models.Products product)
         {
-            if (!_productDataBaseRepository.check(ProductId, product))
+            if (!_productDataBaseRepository.Check(productId, product))
                 return HttpStatusCode.BadRequest;
-            bool flag = this._productDataBaseRepository.UpdateProduct(ProductId, product);
+            bool flag = this._productDataBaseRepository.UpdateProduct(productId, product);
             if (flag == false)
             {
                 return HttpStatusCode.NotFound;
